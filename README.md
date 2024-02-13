@@ -5,9 +5,19 @@ This repository contains a PACT smart contract designed for the Kadena blockchai
 ## Overview
 
 The coin contract enables functionalities such as:
-- Account creation with initial balance setup.
-- Balance inquiry for accounts.
-- Token transfers between accounts.
+
+	- Initialization Function: init function inserts an initial record for the admin account with a balance of 1000.0. This function is typically called once when the contract is first deployed to set up the initial state.
+	- Balance Inquiry: The balance function allows querying the balance of a specified account by reading from the accounts table.
+	- Transfer Function: transfer facilitates moving a specified amount of tokens from one account to another, including checks for positive transfer amounts and sufficient funds.
+
+A few points to consider for real-world applications or further development:
+
+	- Permissions: The contract lacks explicit permission checks for operations like transferring tokens. In a production environment, you would likely need to implement authorization checks to ensure only account owners (or authorized parties) can initiate transfers.
+	- Error Handling: While the contract includes basic enforcement checks (e.g., for positive amounts and sufficient funds), comprehensive error handling would be beneficial for clarity and security.
+	- Keyset Management: The 'admin-keyset is referenced but not defined within this snippet. In practice, you’d set up this keyset in the Kadena blockchain to control access to administrative functions.
+
+For deployment and interaction, make sure you have the necessary tools and access to the Kadena blockchain (e.g., via Chainweaver or command-line tools) and understand how to work with keysets for security.
+
 
 This version is tailored for testnet deployment, facilitating a risk-free environment to experiment and validate your contract's logic.
 
